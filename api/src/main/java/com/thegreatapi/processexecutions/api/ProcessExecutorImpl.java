@@ -23,8 +23,7 @@ final class ProcessExecutorImpl implements ProcessExecutor {
     public List<String> run(List<String> commands, Duration timeout) {
         var process = processRuntime.start(commands);
         blockUntilProcessToExit(process, timeout);
-        int exitValue = process.exitValue();
-        if (exitValue == 0) {
+        if (process.exitValue() == 0) {
             return getStdOut(process);
         } else {
             throw new NonZeroExitException(process);
