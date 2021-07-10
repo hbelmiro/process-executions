@@ -1,5 +1,6 @@
 package com.thegreatapi.processexecutions.api;
 
+import com.thegreatapi.processexecutions.api.exceptions.InvalidCommandException;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

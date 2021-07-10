@@ -1,26 +1,21 @@
 package com.thegreatapi.processexecutions.api;
 
-import com.thegreatapi.processexecutions.core.ProcessExecutionException;
-import com.thegreatapi.processexecutions.core.ProcessRuntime;
+import com.thegreatapi.processexecutions.api.exceptions.InvalidCommandException;
 
+import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.util.List;
 import java.util.Objects;
 
 final class DefaultProcessRuntime implements ProcessRuntime {
 
-    /**
-     * @throws InvalidCommandException   if the command is an empty list (has size 0) or if an element of the command list
-     *                                   is null
-     * @throws ProcessExecutionException in case of an unexpected error occurs
-     * @see ProcessBuilder#start()
-     */
     @Override
     public Process start(List<String> commands) {
         validateCommands(commands);
         try {
             return new ProcessBuilder(commands).start();
-        } catch (Exception e) {
-            throw new ProcessExecutionException("Unexpected error when running a process. Commands: " + commands, e);
+        } catch (IOException e) {
+            throw new UncheckedIOException("IOException while running " + commands, e);
         }
     }
 

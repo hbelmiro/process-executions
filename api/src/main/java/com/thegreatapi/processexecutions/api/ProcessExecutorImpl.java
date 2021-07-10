@@ -1,11 +1,13 @@
 package com.thegreatapi.processexecutions.api;
 
-import com.thegreatapi.processexecutions.core.ProcessExecutionException;
-import com.thegreatapi.processexecutions.core.ProcessRuntime;
+import com.thegreatapi.processexecutions.api.exceptions.CommandTimeoutException;
+import com.thegreatapi.processexecutions.api.exceptions.InterruptedCommandException;
+import com.thegreatapi.processexecutions.api.exceptions.NonZeroExitException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UncheckedIOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -34,7 +36,7 @@ final class ProcessExecutorImpl implements ProcessExecutor {
         try (var stdOutReader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
             return stdOutReader.lines().collect(Collectors.toUnmodifiableList());
         } catch (IOException e) {
-            throw new ProcessExecutionException("An IOException occurred while reading the stdout.", e);
+            throw new UncheckedIOException("An IOException occurred while reading the stdout.", e);
         }
     }
 

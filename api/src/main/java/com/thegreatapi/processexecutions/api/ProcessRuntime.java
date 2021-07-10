@@ -1,4 +1,6 @@
-package com.thegreatapi.processexecutions.core;
+package com.thegreatapi.processexecutions.api;
+
+import com.thegreatapi.processexecutions.api.exceptions.InvalidCommandException;
 
 import java.util.List;
 
@@ -10,7 +12,8 @@ public interface ProcessRuntime {
      *
      * @param commands the list containing the program and its arguments
      * @return a new {@link Process} object for managing the subprocess
-     * @throws ProcessExecutionException in case of any error
+     * @throws InvalidCommandException if the command is an empty list (has size 0) or if an element of the command list
+     *                                 is null
      */
     Process start(List<String> commands);
 }

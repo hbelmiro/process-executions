@@ -1,7 +1,5 @@
 package com.thegreatapi.processexecutions.api;
 
-import com.thegreatapi.processexecutions.core.ProcessRuntime;
-
 public final class ProcessExecutionBuilder {
 
     private ProcessRuntime processRuntime = new DefaultProcessRuntime();

@@ -1,6 +1,7 @@
 package com.thegreatapi.processexecutions.api;
 
-import com.thegreatapi.processexecutions.core.ProcessRuntime;
+import com.thegreatapi.processexecutions.api.exceptions.CommandTimeoutException;
+import com.thegreatapi.processexecutions.api.exceptions.NonZeroExitException;
 import com.thegreatapi.processexecutions.testing.FakeProcessBuilder;
 import org.junit.jupiter.api.Test;
 
