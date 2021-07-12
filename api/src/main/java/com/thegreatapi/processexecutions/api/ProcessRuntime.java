@@ -4,6 +4,9 @@ import com.thegreatapi.processexecutions.api.exceptions.InvalidCommandException;
 
 import java.util.List;
 
+/**
+ * Runtime where the process will be executed.
+ */
 @SuppressWarnings("InterfaceMayBeAnnotatedFunctional")
 public interface ProcessRuntime {
 
