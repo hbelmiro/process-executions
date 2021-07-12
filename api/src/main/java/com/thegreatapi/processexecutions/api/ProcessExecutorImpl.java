@@ -17,7 +17,7 @@ final class ProcessExecutorImpl implements ProcessExecutor {
 
     private final ProcessRuntime processRuntime;
 
-    ProcessExecutorImpl(ProcessExecutionBuilder builder) {
+    ProcessExecutorImpl(ProcessExecutorBuilder builder) {
         processRuntime = builder.getProcessRuntime();
     }
 

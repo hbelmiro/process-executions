@@ -21,8 +21,8 @@ class ProcessExecutorImplTest {
                                                                       .inputStream(expectedOutput.getBytes())
                                                                       .build();
 
-        ProcessExecutionBuilder builder = ProcessExecutionBuilder.newBuilder()
-                                                                 .processRuntime(processRuntime);
+        ProcessExecutorBuilder builder = ProcessExecutorBuilder.newBuilder()
+                                                               .processRuntime(processRuntime);
 
         ProcessExecutorImpl processExecutor = new ProcessExecutorImpl(builder);
 
@@ -42,8 +42,8 @@ class ProcessExecutorImplTest {
                                                                       .errorStream(expectedError.getBytes())
                                                                       .build();
 
-        ProcessExecutionBuilder builder = ProcessExecutionBuilder.newBuilder()
-                                                                 .processRuntime(processRuntime);
+        ProcessExecutorBuilder builder = ProcessExecutorBuilder.newBuilder()
+                                                               .processRuntime(processRuntime);
 
         ProcessExecutorImpl processExecutor = new ProcessExecutorImpl(builder);
         List<String> commands = List.of("anycommand");
@@ -59,8 +59,8 @@ class ProcessExecutorImplTest {
     void timeoutExpected() {
         ProcessRuntime processRuntime = commands -> createARuntimeThatNeverFinishTheProcess();
 
-        ProcessExecutionBuilder builder = ProcessExecutionBuilder.newBuilder()
-                                                                 .processRuntime(processRuntime);
+        ProcessExecutorBuilder builder = ProcessExecutorBuilder.newBuilder()
+                                                               .processRuntime(processRuntime);
 
         ProcessExecutorImpl processExecutor = new ProcessExecutorImpl(builder);
         List<String> commands = List.of("anycommand");

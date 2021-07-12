@@ -3,11 +3,11 @@ package com.thegreatapi.processexecutions.api;
 /**
  * Builder for {@link ProcessExecutor}.
  */
-public final class ProcessExecutionBuilder {
+public final class ProcessExecutorBuilder {
 
     private ProcessRuntime processRuntime = new DefaultProcessRuntime();
 
-    private ProcessExecutionBuilder() {
+    private ProcessExecutorBuilder() {
     }
 
     /**
@@ -25,7 +25,7 @@ public final class ProcessExecutionBuilder {
      * @param processRuntime the runtime where the process should be executed
      * @return this builder
      */
-    public ProcessExecutionBuilder processRuntime(ProcessRuntime processRuntime) {
+    public ProcessExecutorBuilder processRuntime(ProcessRuntime processRuntime) {
         this.processRuntime = processRuntime;
         return this;
     }
@@ -39,7 +39,7 @@ public final class ProcessExecutionBuilder {
      *
      * @return the new instance
      */
-    public static ProcessExecutionBuilder newBuilder() {
-        return new ProcessExecutionBuilder();
+    public static ProcessExecutorBuilder newBuilder() {
+        return new ProcessExecutorBuilder();
     }
 }
