@@ -1,7 +1,7 @@
 package com.thegreatapi.processexecutions.samples.basic;
 
+import com.thegreatapi.processexecutions.api.DefaultProcessExecutor;
 import com.thegreatapi.processexecutions.api.ProcessExecutor;
-import com.thegreatapi.processexecutions.api.ProcessExecutorBuilder;
 import com.thegreatapi.processexecutions.api.exceptions.NonZeroExitException;
 
 import java.time.Duration;
@@ -21,7 +21,7 @@ public final class OperatingSystemNamePrinter {
     }
 
     public static void main(String[] args) {
-        var printer = new OperatingSystemNamePrinter(ProcessExecutorBuilder.newBuilder().build());
+        var printer = new OperatingSystemNamePrinter(new DefaultProcessExecutor());
         System.out.println(printer.getOperatingSystemName());
     }
 
